@@ -1,0 +1,62 @@
+{% extends "base_main.html" %}
+{% block content %}
+
+<div class="row">
+<div class="col-lg-12 col-md-12 col-xs-12">
+<div class="card">
+<div class="card-header">
+<h4 class="card-title">域名列表</h4>
+<div class="selected float-right">
+	<form action="/insert" method="post" enctype="multipart/form-data">
+		<input id="excfile" name="excelFile" type="file" class="form-contronl" style="width: 300px; display: inline;" >
+		<input id="saveZipButton" type="submit" style="width: 60px;height: 35px;" value="上传" />
+	</form>
+	<a href="/insert" class="badge badge-danger">添加</a>
+</div>
+</div>
+<div class="table-overflow">
+<table class="table table-lg">
+<thead>
+<tr>
+<td class="text-dark text-semibold">Name</td>
+<td class="text-dark text-semibold">Type</td>
+<td class="text-dark text-semibold">file</td>
+<td class="text-dark text-semibold">allowupdate</td>
+<td class="text-dark text-semibold">forwarders</td>
+<td class="text-dark text-semibold">forward</td>
+<td class="text-dark text-semibold">操作</td>
+</tr>
+</thead>
+<tbody>
+{% for zone in zone_list %}
+<tr>
+<td>
+<div class="list-media">
+<div class="list-item">
+<div class="media-img">
+<a class="btn btn-circle btn-info text-white">TM</a>
+</div>
+<div class="info">
+	<span class="title text-semibold">{{zone.name}}</span>
+</div>
+</div>
+</div>
+</td>
+<td>{{zone.ty}}</td>
+<td>{{zone.filepath}}</td>
+<td>{{zone.allowupdate}}</td>
+<td>{{zone.forwarders}}</td>
+<td>{{zone.forwar}}</td>
+<td>
+	<a href="/change" class="badge badge-danger">修改</a>
+	<a href="/delete?name={{zone.name}}" class="badge badge-danger">删除</a>
+
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+{% endblock %}
