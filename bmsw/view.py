@@ -14,11 +14,13 @@ def insert(request):
                 create_named(Named(excel_raw_data['主机记录'][i], "60", excel_raw_data['记录值'][i])) 
                 zone = Zone(excel_raw_data['主机记录'][i]+".fuyoukache.com","master",excel_raw_data['主机记录'][i]+".fuyoukache.com.zone","","","")
                 insert_zone(zone)
-        return render(request,"views/main.html",{"message":"success"})
+                zone_list=read_zone()
+                return render(request,"views/main.html",{'zone_list':zone_list})
 def delete(request):
         zone_name = request.GET.get('name')
         delete_zone(zone_name)
-        return render(request,"views/main.html",{"message":"success"})
+        zone_list=read_zone()
+        return render(request,"views/main.html",{'zone_list':zone_list})
 def main(request):
         zone_list=read_zone()
         return render(request,"views/main.html",{'zone_list':zone_list})
