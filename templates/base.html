@@ -6,12 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static "css/index/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/index/bootstrap.min.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "css/index/demo.css" %}">
-    <link rel="stylesheet" type="text/css" href="{% static "css/index/index.css" %}">
+    <link rel="stylesheet" href="{% static "fonts/line-icons.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}">
 </head>
 <body>
     {% block content %}{% endblock %}
+<script src="{% static "js/jquery-min.js" %}"></script>
+<script src="{% static "js/popper.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/jquery.app.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
 </body>
 </html>
