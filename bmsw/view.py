@@ -15,7 +15,7 @@ def insert(request):
                 zone = Zone(excel_raw_data['主机记录'][i]+".fuyoukache.com","master",excel_raw_data['主机记录'][i]+".fuyoukache.com.zone","","","")
                 insert_zone(zone)
                 zone_list=read_zone()
-                return render(request,"views/main.html",{'zone_list':zone_list})
+        return render(request,"views/main.html",{'zone_list':zone_list})
 def delete(request):
         zone_name = request.GET.get('name')
         delete_zone(zone_name)
